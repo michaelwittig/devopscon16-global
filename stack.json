@@ -1,0 +1,25 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Parameters": {
+    "AdminEmail": {
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "AlertTopic": {
+      "Type": "AWS::SNS::Topic",
+      "Properties": {
+        "TopicName": "alert",
+        "Subscription": [{
+          "Endpoint": {"Ref": "AdminEmail"},
+          "Protocol": "email"
+        }]
+      }
+    }
+  },
+  "Outputs": {
+    "AlertTopic": {
+      "Value": {"Ref": "AlertTopic"}
+    }
+  }
+}
