@@ -40,7 +40,7 @@
     }
   },
   "Outputs": {
-    "AlertTopic": {
+    "AlertTopicArn": {
       "Value": {"Ref": "AlertTopic"}
     }
   }
