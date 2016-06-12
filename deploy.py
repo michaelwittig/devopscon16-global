@@ -5,6 +5,16 @@ import logging
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
+def getStackOutput(stackName, outputKey):
+  cfnClient = boto3.client('cloudformation')
+  res = cfnClient.describe_stacks(StackName=stackName)
+  outputs = res['Stacks'][0]['Outputs']
+  logger.info('outputs:{}'.format(outputs))
+  output = [x for x in outputs if x['OutputKey'] == outputKey][0]
+  return output['OutputValue']
+
+print getStackOutput('global', 'AlertTopicArn')
+
 def extractTemplate(zipFile, sourceFile, destinationDir):
   found = False
   try:
