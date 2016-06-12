@@ -37,6 +37,12 @@
       "Properties": {
         "CloudWatchRoleArn": {"Fn::GetAtt": ["ApiGatewayCloudWatchRole", "Arn"]}
       }
+    },
+    "Test": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        
+      }
     }
   },
   "Outputs": {
