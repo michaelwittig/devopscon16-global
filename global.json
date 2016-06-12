@@ -37,6 +37,12 @@
       "Properties": {
         "CloudWatchRoleArn": {"Fn::GetAtt": ["ApiGatewayCloudWatchRole", "Arn"]}
       }
+    },
+    "Artifactstore": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "global-artifactstore"
+      }
     }
   },
   "Outputs": {
