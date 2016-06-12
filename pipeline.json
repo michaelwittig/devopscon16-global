@@ -55,7 +55,7 @@
           "S3Bucket": "global-artifactstore",
           "S3Key": {"Fn::Join": ["", [{"Ref": "ServiceName"}, "/deploy.zip"]]}
         },
-        "Handler": "index.handler",
+        "Handler": "deploy.handler",
         "MemorySize": 256,
         "Role": {"Fn::GetAtt": ["DeployLambdaRole", "Arn"]},
         "Runtime": "python2.7",
