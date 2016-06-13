@@ -2,12 +2,10 @@
   "AWSTemplateFormatVersion": "2010-09-09",
   "Parameters": {
     "RepositoryName": {
-      "Type": "String",
-      "Default": "auth-service"
+      "Type": "String"
     },
     "ServiceName": {
-      "Type": "String",
-      "Default": "auth-service"
+      "Type": "String"
     }
   },
   "Resources": {
@@ -46,7 +44,8 @@
     "ArtifactStore": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-      }
+      },
+      "DeletionPolicy": "Retain"
     },
     "DeployLambda": {
       "Type": "AWS::Lambda::Function",
